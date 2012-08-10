@@ -12,10 +12,13 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
+# Disable opt-click to move cursor in terminal applications (Terminal, iTerm2)
+defaults write -g OptionClickToMoveCursor -boolean false
+
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "MathBook Pro"
-sudo scutil --set HostName "MathBook Pro"
-sudo scutil --set LocalHostName "MathBook-Pro"
+sudo scutil --set ComputerName "Macbook-Anthony"
+sudo scutil --set HostName "Macbook-Anthony"
+sudo scutil --set LocalHostName "Macbook-Anthony"
 
 # Menu bar: disable transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
