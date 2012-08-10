@@ -1,3 +1,4 @@
+### (Eventually I'll edit this to fit my local machine exactly... - Anthony)
 # Mathias’s dotfiles
 
 ## Installation
