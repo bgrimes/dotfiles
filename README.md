@@ -1,6 +1,4 @@
 ### (Eventually I'll edit this to fit my local machine exactly... - Anthony)
-
-# This is a VERY important change!
 # Mathias’s dotfiles
 
 ## Installation
