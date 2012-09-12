@@ -9,6 +9,8 @@ function doIt() {
 	echo "$dotfiles" | xargs -I {} mv -f ~/{} $BACKUPFOLDER/{} 2>/dev/null
 	echo "$dotfiles" | xargs -I {} rm -rf ~/{} 2>/dev/null
 	echo "$dotfiles" | xargs -I {} ln -f -s $LINKEDDIR/{} ~/{}
+
+	git config --global include.path ~/.gitconfig-common
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
