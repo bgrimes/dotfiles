@@ -1,0 +1,25 @@
+[gist]
+	private = yes
+	extension = php
+[core]
+	excludesfile = ~/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+[alias]
+  st = status -s
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit 
+  spull = !git-svn fetch && git-svn rebase
+  spush = !git-svn dcommit --interactive
+  ri = rebase --interactive --autosquash
+[merge]
+	tool = opendiff
+[credential]
+	helper = osxkeychain
+[svn]
+	pushmergeinfo = true
+[color]
+	ui = true
