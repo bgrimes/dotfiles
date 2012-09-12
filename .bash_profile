@@ -41,3 +41,40 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
+
+### BEGIN MY OLD .profile
+source /code/git-core/contrib/completion/git-prompt.sh
+source /code/git-core/contrib/completion/git-completion.bash
+
+# Java
+export JAVA_HOME=`/usr/libexec/java_home`
+
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+export EDITOR=vim
+set -o vi
+HISTFILESIZE=1000000000
+HISTSIZE=1000000
+
+# Grep Colors
+alias grep="grep --color --exclude='*svn*'"
+
+# Wget: Ignore invalid/poorly-signed ssh cert
+alias wget="wget --no-check-certificate"
+
+# SVN Autocomplete Script
+source ~/.bash/svn_completion
+
+export PATH
+
+source $HOME/.tmux/tmuxinator_completion
+alias tmux='tmux -2'
+
+# Neat hack: http://jonisalonen.com/2012/your-bash-prompt-needs-this/
+PS1="\[\033[G\]$PS1"
+
+alias tx="tmuxinator start"
+alias taildir="multitail --mergeall *"
+
+# Tmux powerline PWD setting: https://github.com/erikw/tmux-powerline
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
