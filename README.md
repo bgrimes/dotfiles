@@ -51,6 +51,7 @@ My `~/.extra` looks something like this:
 ```bash
 # PATH additions
 export PATH="~/bin:$PATH"
+```
 
 ### Sensible OS X defaults
 
