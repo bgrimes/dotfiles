@@ -43,11 +43,8 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
 ### BEGIN MY OLD .profile
-source /code/git-core/contrib/completion/git-prompt.sh
-source /code/git-core/contrib/completion/git-completion.bash
-
 # Java
-export JAVA_HOME=`/usr/libexec/java_home`
+[ -e /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home`
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -62,8 +59,9 @@ alias grep="grep --color --exclude='*svn*'"
 # Wget: Ignore invalid/poorly-signed ssh cert
 alias wget="wget --no-check-certificate"
 
-# SVN Autocomplete Script
+# Autocomplete Scripts
 source ~/.bash/svn_completion
+source ~/.bash/git-completion.bash
 
 export PATH
 
