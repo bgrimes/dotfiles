@@ -1,96 +1,101 @@
-" Make Vim more useful
-set nocompatible
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
-" Enhance command-line completion
-set wildmenu
-" Allow cursor keys in insert mode
-set esckeys
-" Allow backspace in insert mode
-set backspace=indent,eol,start
-" Optimize for fast terminal connections
-set ttyfast
-" Add the g flag to search/replace by default
-set gdefault
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
-" Change mapleader
-let mapleader=","
-" Don’t add empty newlines at the end of files
-set binary
-set noeol
-" Centralize backups, swapfiles and undo history
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
-if exists("&undodir")
-	set undodir=~/.vim/undo
-endif
+call pathogen#infect()
 
-" Respect modeline in files
-set modeline
-set modelines=4
-" Enable per-directory .vimrc files and disable unsafe commands in them
-set exrc
-set secure
-" Enable line numbers
-set number
-" Enable syntax highlighting
+color tir_black
 syntax on
-" Highlight current line
-set cursorline
-" Make tabs as wide as two spaces
-set tabstop=2
-" Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
-" Highlight searches
-set hlsearch
-" Ignore case of searches
-set ignorecase
-" Highlight dynamically as pattern is typed
-set incsearch
-" Always show status line
-set laststatus=2
-" Enable mouse in all modes
+set sw=4 ts=4 noet nu si hls
+set nocursorline
+set nolist
+set nospell
+set nocompatible
 set mouse=a
-" Disable error bells
-set noerrorbells
-" Don’t reset cursor to start of line when moving around.
-set nostartofline
-" Show the cursor position
-set ruler
-" Don’t show the intro message when starting Vim
-set shortmess=atI
-" Show the current mode
-set showmode
-" Show the filename in the window titlebar
-set title
-" Show the (partial) command as it’s being typed
-set showcmd
-" Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
-endif
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
+filetype plugin on
+filetype indent on
+set noswapfile
+set backup
+set writebackup
+set backupdir=/Users/amarion/.vimbackup
+set dir=/Users/amarion/.vimswap
+set nowrap
+set encoding=utf8
+set laststatus=2
+set ttyfast
 
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
-" Save a file as root (,W)
-noremap <leader>W :w !sudo tee % > /dev/null<CR>
+if has('gui_running')
+	set guifont=Monaco\ for\ Powerline
+    set transparency=0
+end
 
-" Automatic commands
-if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+" Easier tab navigation
+map tl :bnext<CR>
+map th :bprev<CR>
+map tn :bnew<CR>
+map tq :bclose<CR>
+
+" Coffeescript
+au BufNewFile,BufRead *.coffee,Cakefile setlocal filetype=coffee ts=2 sw=2 et
+au BufNewFile,BufRead *.coffee,Cakefile IndentGuidesEnable 
+au BufNewFile,BufRead *.coffee,Cakefile hi IndentGuidesOdd guibg=LightGray
+
+" SvnDiff stuff
+noremap <F3> :call Svndiff("prev")<CR>
+noremap <F4> :call Svndiff("next")<CR>
+noremap <F5> :call Svndiff("clear")<CR>
+hi DiffAdd      ctermfg=0 ctermbg=2 guibg='green'
+hi DiffDelete   ctermfg=0 ctermbg=1 guibg='red'
+hi DiffChange   ctermfg=0 ctermbg=3 guibg='yellow'
+
+" NERDTree toggle, open trees in new buffers
+map <C-n> :NERDTreeToggle<CR>
+"autocmd VimEnter * NERDTree
+"autocmd BufEnter * NERDTreeMirror
+
+" NERDCommenter toggle
+map <C-c> <Leader>c<space>
+
+" Command-T: use CTRL-T to open, open in new tab by default, allow esc
+map <C-t> :CommandT<CR>
+"let g:CommandTAcceptSelectionMap = '<C-t>'
+"let g:CommandTAcceptSelectionTabMap = '<CR>'
+let g:CommandTAcceptSelectionMap = '<CR>'
+let g:CommandTAcceptSelectionTabMap = '<C-t>'
+let g:CommandTCancelMap=['<ESC>','<C-c>']
+let g:CommandTNextMap=['<Down>']
+
+" autocmd BufWritePost * :call Svndiff("prev")
+
+" Open new tabs at the end of tabs
+autocmd BufNew * if winnr('$') == 1 | tabmove99 | endif
+
+" Index all the help documents in bundles
+Helptags
+
+let g:Powerline_symbols = 'fancy'
+
+" Eclim settings
+"let g:EclimProjectTreeAutoOpen = 1 
+"let g:EclimLocateFileDefaultAction = 'tabnew'
+"map <C-S-n> :LocateFile<CR>
+
+" Pardot: ignore a bunch of stuff
+set wildignore+=apps/frontend/lib/moduleManagers/connector/webinar/libs/**
+set wildignore+=lib/model/**/om/**
+set wildignore+=lib/model/doctrine/**/generated/**
+
+" Open json files as javascript for syntax highlighting
+autocmd BufNewFile,BufRead *.json set ft=javascript
+
+if bufwinnr(1)
+	map <silent> <C-h> <C-w><
+	map <silent> <C-j> <C-W>-
+	map <silent> <C-k> <C-W>+
+	map <silent> <C-l> <C-w>>
 endif
+
+" No bare.
+let coffee_make_options = ''
+
+" Minibufexplorer
+"let g:miniBufExplorerMoreThanOne=0
+let g:miniBufExplMapWindowNavArrows=1
+let g:miniBufExplUseSingleClick=1
+

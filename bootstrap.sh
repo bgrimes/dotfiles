@@ -1,9 +1,11 @@
 #!/bin/bash
-cd "$(dirname "$0")"
+LINKEDDIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 git pull
 function doIt() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README.md" -av . ~
+	ls -a | grep -v -e"^\.$" -e"^\.\.$" -e"\.git" -e"README\.md" -e"bootstrap\.sh" -e"\.DS_Store" | xargs -I {} ln -f -s $LINKEDDIR/{} ~/{}
 }
+
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt
 else
