@@ -16,9 +16,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 defaults write -g OptionClickToMoveCursor -boolean false
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "Macbook-Anthony"
-sudo scutil --set HostName "Macbook-Anthony"
-sudo scutil --set LocalHostName "Macbook-Anthony"
+sudo scutil --set ComputerName "Macbook"
+sudo scutil --set HostName "Macbook"
+sudo scutil --set LocalHostName "Macbook"
 
 # Menu bar: disable transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
