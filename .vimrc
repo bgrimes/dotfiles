@@ -8,6 +8,7 @@ Bundle 'gmarik/vundle'
 Bundle 'vim-scripts/tir_black'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'kien/ctrlp.vim'
 filetype plugin indent on
 " End Vundle setup
 
@@ -56,15 +57,15 @@ au BufNewFile,BufRead *.coffee,Cakefile hi IndentGuidesOdd guibg=LightGray
 "" NERDCommenter toggle
 "map <C-c> <Leader>c<space>
 "
-" Command-T: use CTRL-T to open, open in new tab by default, allow esc
-map <C-t> :CommandT<CR>
+" Ctrl-P: use Command-T to open, TODO open in new tab by default, allow esc
+map <C-t> :CtrlP<CR>
 "let g:CommandTAcceptSelectionMap = '<C-t>'
 "let g:CommandTAcceptSelectionTabMap = '<CR>'
-let g:CommandTAcceptSelectionMap = '<CR>'
-let g:CommandTAcceptSelectionTabMap = '<C-t>'
-let g:CommandTCancelMap=['<ESC>','<C-c>']
-let g:CommandTNextMap=['<Down>']
-"
+"let g:CommandTAcceptSelectionMap = '<CR>'
+"let g:CommandTAcceptSelectionTabMap = '<C-t>'
+"let g:CommandTCancelMap=['<ESC>','<C-c>']
+"let g:CommandTNextMap=['<Down>']
+
 " Open new tabs at the end of tabs
 autocmd BufNew * if winnr('$') == 1 | tabmove99 | endif
 
