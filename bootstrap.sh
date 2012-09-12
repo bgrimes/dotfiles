@@ -1,15 +1,20 @@
 #!/bin/bash
 LINKEDDIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+BACKUPFOLDER=~/dotfiles-backup-`date +%s`
 
 git pull
 function doIt() {
-	ls -a | grep -v -e"^\.$" -e"^\.\.$" -e"\.git" -e"README\.md" -e"bootstrap\.sh" -e"\.DS_Store" | xargs -I {} ln -f -s $LINKEDDIR/{} ~/{}
+	dotfiles=`ls -a | grep -v -e"^\.$" -e"^\.\.$" -e"\.git" -e"README\.md" -e"bootstrap\.sh" -e"\.DS_Store"`
+	mkdir -p $BACKUPFOLDER
+	echo "$dotfiles" | xargs -I {} mv -f ~/{} $BACKUPFOLDER/{}
+	echo "$dotfiles" | xargs -I {} rm -rf ~/{} 2>/dev/null
+	echo "$dotfiles" | xargs -I {} ln -f -s $LINKEDDIR/{} ~/{}
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt
 else
-	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
+	read -p "Existing files will be moved to $BACKUPFOLDER. Proceed? (y/n) " -n 1
 	echo
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
 		doIt
