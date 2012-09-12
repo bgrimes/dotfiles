@@ -1,33 +1,15 @@
-# Anthony’s dotfiles (Forked and bastardized from https://github.com/mathiasbynens)
+# Anthony’s dotfiles
 
 ## Installation
 
-### Using Git and the bootstrap script
+### Using the bootstrap script
 
-You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
+You can clone the repository wherever you want. (I like to keep it in `~/dotfiles`) The bootstrapper script will pull in the latest version and copy the files to your home folder.
 
-```bash
-git clone https://github.com/mathiasbynens/dotfiles.git && cd dotfiles && ./bootstrap.sh
-```
-
-To update, `cd` into your local `dotfiles` repository and then:
+To install, `cd` into your local `dotfiles` repository and then:
 
 ```bash
 ./bootstrap.sh
-```
-
-Alternatively, to update while avoiding the confirmation prompt:
-
-```bash
-./bootstrap.sh -f
-```
-
-### Git-free install
-
-To install these dotfiles without Git:
-
-```bash
-cd; curl -#L https://github.com/mathiasbynens/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh}
 ```
 
 To update later on, just run that command again.
@@ -67,6 +49,14 @@ When setting up a new Mac, you may want to install some common Homebrew formulae
 
 ```bash
 ./.brew
+```
+
+### Using .gitconfig settings
+
+Set your .gitconfig to use the included .gitconfig-common settings:
+```gitconfig
+[include]
+	path=~/.gitconfig-common
 ```
 
 ## Thanks to…
