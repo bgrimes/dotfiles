@@ -1,5 +1,4 @@
-### (Eventually I'll edit this to fit my local machine exactly... - Anthony)
-# Mathias’s dotfiles
+# Anthony’s dotfiles (Forked and bastardized from https://github.com/mathiasbynens)
 
 ## Installation
 
@@ -53,18 +52,6 @@ My `~/.extra` looks something like this:
 # PATH additions
 export PATH="~/bin:$PATH"
 
-# Git credentials
-# Not in the repository, to prevent people from accidentally committing under my name
-GIT_AUTHOR_NAME="Mathias Bynens"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="mathias@mailinator.com"
-GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-git config --global user.email "$GIT_AUTHOR_EMAIL"
-```
-
-You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/mathiasbynens/dotfiles/fork_select) instead, though.
-
 ### Sensible OS X defaults
 
 When setting up a new Mac, you may want to set some sensible OS X defaults:
@@ -81,13 +68,8 @@ When setting up a new Mac, you may want to install some common Homebrew formulae
 ./.brew
 ```
 
-## Feedback
-
-Suggestions/improvements
-[welcome](https://github.com/mathiasbynens/dotfiles/issues)!
-
 ## Thanks to…
-
+* [Mathias Bynens](https://github.com/mathiasbynens) The original author of the dotfiles repository!
 * [Gianni Chiappetta](http://gf3.ca/) for sharing his [amazing collection of dotfiles](https://github.com/gf3/dotfiles)
 * [Matijs Brinkhuis](http://hotfusion.nl/) and his [homedir repository](https://github.com/matijs/homedir)
 * [Jan Moesen](http://jan.moesen.nu/) and his [ancient `.bash_profile`](https://gist.github.com/1156154) + [shiny tilde repository](https://github.com/janmoesen/tilde)
