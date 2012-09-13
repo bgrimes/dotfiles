@@ -1,6 +1,6 @@
 #!/bin/bash
 LINKEDDIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-BACKUPFOLDER=~/dotfiles-backup-`date +%s`
+BACKUPFOLDER=~/backup-dotfiles-`date +%s`
 
 git pull
 function doIt() {
@@ -10,7 +10,7 @@ function doIt() {
 	echo "$dotfiles" | xargs -I {} rm -rf ~/{} 2>/dev/null
 	echo "$dotfiles" | xargs -I {} ln -f -s $LINKEDDIR/{} ~/{}
 
-	git config --global include.path ~/.gitconfig-common
+	command -v git >/dev/null 2>&1 && git config --global include.path ~/.gitconfig-common
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
