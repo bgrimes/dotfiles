@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+if tput setaf 1 &> /dev/null; then
+	tput sgr0
+	# 256-colors
+
+	# Regular Colors
+	Black=$(tput setaf 30)        # Black
+	Red=$(tput setaf 31)          # Red
+	Green=$(tput setaf 32)        # Green
+	Yellow=$(tput setaf 33)       # Yellow
+	Blue=$(tput setaf 34)         # Blue
+	Purple=$(tput setaf 35)       # Purple
+	Cyan=$(tput setaf 36)         # Cyan
+	White=$(tput setaf 37)        # White
+
+	# Bold
+	BBlack=$(tput bold; tput setaf 30)
+	BRed=$(tput bold; tput setaf 31)
+	BGreen=$(tput bold; tput setaf 32)
+	BYellow=$(tput bold; tput setaf 33)
+	BBlue=$(tput bold; tput setaf 34)
+	BPurple=$(tput bold; tput setaf 35)
+	BCyan=$(tput bold; tput setaf 36)
+	BWhite=$(tput bold; tput setaf 36)
+
+	# Underline
+	UBlack=$(tput smul; tput setaf 30)
+	URed=$(tput smul; tput setaf 31)
+	UGreen=$(tput smul; tput setaf 32)
+	UYellow=$(tput smul; tput setaf 33)
+	UBlue=$(tput smul; tput setaf 34)
+	UPurple=$(tput smul; tput setaf 35)
+	UCyan=$(tput smul; tput setaf 36)
+	UWhite=$(tput smul; tput setaf 37)
+
+	# Background
+	On_Black=$(tput setab 40)
+	On_Red=$(tput setab 41)
+	On_Green=$(tput setab 42)
+	On_Yellow=$(tput setab 43)
+	On_Blue=$(tput setab 44)
+	On_Purple=$(tput setab 45)
+	On_Cyan=$(tput setab 46)
+	On_White=$(tput setab 47)
+
+	# High Intensty
+	IBlack=$(tput setaf 90)       # Black
+	IRed=$(tput setaf 91)         # Red
+	IGreen=$(tput setaf 92)       # Green
+	IYellow=$(tput setaf 93)      # Yellow
+	IBlue=$(tput setaf 94)        # Blue
+	IPurple=$(tput setaf 95)      # Purple
+	ICyan=$(tput setaf 96)        # Cyan
+	IWhite=$(tput setaf 97)       # White
+
+	# Bold High Intensty
+	BIBlack=$(tput bold; tput setaf 90)
+	BIRed=$(tput bold; tput setaf 91)
+	BIGreen=$(tput bold; tput setaf 92)
+	BIYellow=$(tput bold; tput setaf 93)
+	BIBlue=$(tput bold; tput setaf 94)
+	BIPurple=$(tput bold; tput setaf 95)
+	BICyan=$(tput bold; tput setaf 96)
+	BIWhite=$(tput bold; tput setaf 97)
+
+	# High Intensty backgrounds
+	On_IBlack=$(tput setab 100)   # Black
+	On_IRed=$(tput setab 101)     # Red
+	On_IGreen=$(tput setab 102)   # Green
+	On_IYellow=$(tput setab 103)  # Yellow
+	On_IBlue=$(tput setab 104)    # Blue
+	On_IPurple=$(tput setab 105)  # Purple
+	On_ICyan=$(tput setab 106)    # Cyan
+	On_IWhite=$(tput setab 107)   # White
+fi

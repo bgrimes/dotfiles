@@ -60,8 +60,9 @@ alias grep="grep --color --exclude='*svn*'"
 alias wget="wget --no-check-certificate"
 
 # Autocomplete Scripts
-source ~/.bash/svn_completion
-source ~/.bash/git-completion.bash
+for completionFile in ~/.bash/completion/*; do
+	source $completionFile
+done
 
 export PATH
 
