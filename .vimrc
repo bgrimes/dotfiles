@@ -7,8 +7,11 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'vim-scripts/tir_black'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'scrooloose/nerdcommenter'
 filetype plugin indent on
 " End Vundle setup
 
@@ -53,9 +56,9 @@ au BufNewFile,BufRead *.coffee,Cakefile hi IndentGuidesOdd guibg=LightGray
 "hi DiffAdd      ctermfg=0 ctermbg=2 guibg='green'
 "hi DiffDelete   ctermfg=0 ctermbg=1 guibg='red'
 "hi DiffChange   ctermfg=0 ctermbg=3 guibg='yellow'
-"
-"" NERDCommenter toggle
-"map <C-c> <Leader>c<space>
+
+" NERDCommenter toggle
+map <C-c> <Leader>c<space>
 "
 " Ctrl-P: use Command-T to open, TODO open in new tab by default, allow esc
 map <C-t> :CtrlP<CR>
