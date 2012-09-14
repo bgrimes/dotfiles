@@ -13,6 +13,8 @@ function doIt() {
 	echo "$dotfiles" | xargs -I {} ln -f -s $LINKEDDIR/{} ~/{}
 
 	command -v git >/dev/null 2>&1 && git config --global include.path ~/.gitconfig-common
+	mkdir -p ~/.vimbackup
+	mkdir -p ~/.vimswap
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
