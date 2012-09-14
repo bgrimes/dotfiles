@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source ~/.bash/bash_colors
+
+# The best way to determine these colors is to use .bash/color-test.sh
+BASECOLOR=$(tput setaf 256)
+USERCOLOR=$(tput setaf 9)
+HOSTCOLOR=$(tput setaf 141)
+DIRCOLOR=$(tput setaf 190)
+PS2COLOR=$(tput setaf 172)

@@ -14,6 +14,15 @@ To install, `cd` into your local `dotfiles` repository and then:
 
 To update later on, just run that command again.
 
+### Using custom colors
+
+If you want to use this same repository (or a fork of it!) and you would like to tweak your server configuration without touching the base files, you can overwrite the defaults for the color settings:
+
+```bash
+cd .bash
+cp bash_color_settings.orig bash_color_settings
+```
+
 ### Specify the `$PATH`
 
 If `~/.path` exists, it will be sourced along with the other files, before any feature testing (such as [detecting which version of `ls` is being used](https://github.com/mathiasbynens/dotfiles/blob/aff769fd75225d8f2e481185a71d5e05b76002dc/.aliases#L21-26)) takes place.
@@ -49,14 +58,6 @@ When setting up a new Mac, you may want to install some common Homebrew formulae
 
 ```bash
 ./.brew
-```
-
-### Using .gitconfig settings
-
-Set your .gitconfig to use the included .gitconfig-common settings:
-```gitconfig
-[include]
-	path=~/.gitconfig-common
 ```
 
 ## Thanks to…

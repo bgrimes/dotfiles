@@ -59,15 +59,9 @@ function git_no_changes_icon {
 	get_icon $CHECKMARK $GREEN
 }
 
-export MAGENTA
-export ORANGE
-export GREEN
-export PURPLE
-export WHITE
-export BOLD
-export RESET
-
-[ -e ~/.bash/prompt-hostname-color ] && bash ~/.bash/prompt-hostname-color || HOSTCOLOR=$ORANGE
+# Source the original, then source the overwrites. This allows us to add new overwrites to the orig later!
+source ~/.bash/prompt_color_settings.orig
+[ -e ~/.bash/prompt_color_settings ] && source ~/.bash/prompt_color_settings
 
 function parse_git_dirty() {
 	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && git_changes_icon || git_no_changes_icon
@@ -77,5 +71,5 @@ function parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/( \1 $(parse_git_dirty) $PURPLE)/"
 }
 
-export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$HOSTCOLOR\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\[$RESET\]\$ \[$RESET\]"
-export PS2="\[$ORANGE\]→ \[$RESET\]"
+export PS1="\[${BOLD}${USERCOLOR}\]\u \[$BASECOLOR\]at \[$HOSTCOLOR\]\h \[$BASECOLOR\]in \[$DIRCOLOR\]\w\[$BASECOLOR\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$BASECOLOR\]\n\[$RESET\]\$ \[$RESET\]"
+export PS2="\[$PS2COLOR\]→ \[$RESET\]"
