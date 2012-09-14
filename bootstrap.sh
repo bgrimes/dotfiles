@@ -2,8 +2,8 @@
 LINKEDDIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BACKUPFOLDER=~/backup/backup-dotfiles-`date +%s`
 
-git pull
-git submodule update --init
+git pull &>/dev/null
+git submodule update --init &>/dev/null
 
 function doIt() {
 	dotfiles=`ls -a | grep -v -e"^\.$" -e"^\.\.$" -e"^\.git$" -e"gitattributes" -e"gitignore" -e"gitmodules" -e"README\.md" -e"bootstrap\.sh" -e"\.DS_Store" -e"other-settings"`
@@ -15,6 +15,8 @@ function doIt() {
 	command -v git >/dev/null 2>&1 && git config --global include.path ~/.gitconfig-common
 	mkdir -p ~/.vimbackup
 	mkdir -p ~/.vimswap
+
+	echo "Be sure to run 'vim -c BundleInstall' to install bundles!"
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
