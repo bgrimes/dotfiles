@@ -2,9 +2,9 @@
 LINKEDDIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BACKUPFOLDER=~/backup-dotfiles-`date +%s`
 
-git submodule init
-git submodule pull
 git pull
+git submodule update --init
+
 function doIt() {
 	dotfiles=`ls -a | grep -v -e"^\.$" -e"^\.\.$" -e"^\.git$" -e"gitattributes" -e"gitignore" -e"gitmodules" -e"README\.md" -e"bootstrap\.sh" -e"\.DS_Store"`
 	mkdir -p $BACKUPFOLDER
