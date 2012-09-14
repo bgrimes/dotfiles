@@ -12,6 +12,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'kchmck/vim-coffee-script'
 filetype plugin indent on
 " End Vundle setup
 
