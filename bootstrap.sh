@@ -6,7 +6,7 @@ git pull
 git submodule update --init
 
 function doIt() {
-	dotfiles=`ls -a | grep -v -e"^\.$" -e"^\.\.$" -e"^\.git$" -e"gitattributes" -e"gitignore" -e"gitmodules" -e"README\.md" -e"bootstrap\.sh" -e"\.DS_Store"`
+	dotfiles=`ls -a | grep -v -e"^\.$" -e"^\.\.$" -e"^\.git$" -e"gitattributes" -e"gitignore" -e"gitmodules" -e"README\.md" -e"bootstrap\.sh" -e"\.DS_Store" -e"phpstorm-settings.jar"`
 	mkdir -p $BACKUPFOLDER
 	echo "$dotfiles" | xargs -I {} mv -f ~/{} $BACKUPFOLDER/{} 2>/dev/null
 	echo "$dotfiles" | xargs -I {} rm -rf ~/{} 2>/dev/null
