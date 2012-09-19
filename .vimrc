@@ -13,6 +13,10 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'msanders/snipmate.vim'
+Bundle 'anthonymarion/coffeScript-VIM-Snippets'
+Bundle 'digitaltoad/vim-jade'
+" TODO: Actually allow user to use a .vimbundles files to determine other bundles
 filetype plugin indent on
 " End Vundle setup
 
@@ -40,16 +44,11 @@ if has('gui_running')
 end
 
 " Easier tab navigation
-map tl :bnext<CR>
-map th :bprev<CR>
-map tn :bnew<CR>
-map tq :bclose<CR>
+map tl :tabnext<CR>
+map th :tabprev<CR>
+map tn :tabnew<CR>
+map tq :tabclose<CR>
 
-" Coffeescript
-au BufNewFile,BufRead *.coffee,Cakefile setlocal filetype=coffee ts=2 sw=2 et
-au BufNewFile,BufRead *.coffee,Cakefile IndentGuidesEnable 
-au BufNewFile,BufRead *.coffee,Cakefile hi IndentGuidesOdd guibg=LightGray
-"
 "" SvnDiff stuff
 "noremap <F3> :call Svndiff("prev")<CR>
 "noremap <F4> :call Svndiff("next")<CR>
