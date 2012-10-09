@@ -16,6 +16,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'msanders/snipmate.vim'
 Bundle 'anthonymarion/coffeScript-VIM-Snippets'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'scrooloose/nerdtree'
+Bundle 'vim-scripts/Rename'
 " TODO: Actually allow user to use a .vimbundles files to determine other bundles
 filetype plugin indent on
 " End Vundle setup
@@ -49,25 +51,13 @@ map th :tabprev<CR>
 map tn :tabnew<CR>
 map tq :tabclose<CR>
 
-"" SvnDiff stuff
-"noremap <F3> :call Svndiff("prev")<CR>
-"noremap <F4> :call Svndiff("next")<CR>
-"noremap <F5> :call Svndiff("clear")<CR>
-"hi DiffAdd      ctermfg=0 ctermbg=2 guibg='green'
-"hi DiffDelete   ctermfg=0 ctermbg=1 guibg='red'
-"hi DiffChange   ctermfg=0 ctermbg=3 guibg='yellow'
-
 " NERDCommenter toggle
 map <C-c> <Leader>c<space>
 "
-" Ctrl-P: use Command-T to open, TODO open in new tab by default, allow esc
+" Ctrl-P: use Ctrl-T to open
 map <C-t> :CtrlP<CR>
-"let g:CommandTAcceptSelectionMap = '<C-t>'
-"let g:CommandTAcceptSelectionTabMap = '<CR>'
-"let g:CommandTAcceptSelectionMap = '<CR>'
-"let g:CommandTAcceptSelectionTabMap = '<C-t>'
-"let g:CommandTCancelMap=['<ESC>','<C-c>']
-"let g:CommandTNextMap=['<Down>']
+
+map <Leader>t :NERDTreeFind<CR>
 
 " Open new tabs at the end of tabs
 autocmd BufNew * if winnr('$') == 1 | tabmove99 | endif
@@ -82,9 +72,22 @@ set wildignore+=lib/model/doctrine/**/generated/**
 " Open json files as javascript for syntax highlighting
 autocmd BufNewFile,BufRead *.json set ft=javascript
 
+" Open mjs (moustache-js template) as html
+autocmd BufNewFile,BufRead *.mjs set ft=html
+
+au BufRead,BufNewFile *.md set filetype=markdown
+
 if bufwinnr(1)
 	map <silent> <C-h> <C-w><
 	map <silent> <C-j> <C-W>-
 	map <silent> <C-k> <C-W>+
 	map <silent> <C-l> <C-w>>
 endif
+
+" Open ctrl-p file in new tab
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': [],
+  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+  \ }
+
+let g:ctrlp_custom_ignore = 'node_modules'
