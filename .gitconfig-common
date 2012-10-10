@@ -15,8 +15,8 @@
   spull = !git-svn fetch && git-svn rebase
   spush = !git-svn dcommit --interactive
   ri = rebase --interactive --autosquash
-  pusho = git push origin --all
-  pullo = git pull origin --all
+  pusho = push origin --all
+  pullo = pull origin --all
 [merge]
 	tool = opendiff
 [credential]
