@@ -18,6 +18,7 @@ Bundle 'anthonymarion/coffeScript-VIM-Snippets'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/Rename'
+Bundle 'groenewege/vim-less'
 " TODO: Actually allow user to use a .vimbundles files to determine other bundles
 filetype plugin indent on
 " End Vundle setup
