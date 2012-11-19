@@ -91,4 +91,4 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
 
-let g:ctrlp_custom_ignore = 'node_modules'
+let g:ctrlp_custom_ignore = 'node_modules\|.git'

@@ -64,7 +64,7 @@ source ~/.bash/prompt_color_settings.orig
 [ -e ~/.bash/prompt_color_settings ] && source ~/.bash/prompt_color_settings
 
 function parse_git_dirty() {
-	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && git_changes_icon || git_no_changes_icon
+	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && git_changes_icon || git_no_changes_icon
 }
 
 function parse_git_branch() {
