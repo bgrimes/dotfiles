@@ -15,20 +15,12 @@ segments_path="${cwd}/${segments_dir}"
 # Segment
 # Comment/uncomment the register function call to enable or disable a segment.
 
-declare -A pwd
-pwd+=(["script"]="${segments_path}/pwd.sh")
-pwd+=(["foreground"]="colour211")
-pwd+=(["background"]="colour89")
-pwd+=(["separator"]="${separator_left_bold}")
-#register_segment "pwd"
-
-declare -A mail_count
-mail_count+=(["script"]="${segments_path}/maildir_count.sh")
-#mail_count+=(["script"]="${segments_path}/apple_mail_count.sh")
-mail_count+=(["foreground"]="white")
-mail_count+=(["background"]="red")
-mail_count+=(["separator"]="${separator_left_bold}")
-register_segment "mail_count"
+declare -A daemons
+daemons+=(["script"]="${segments_path}/daemons.sh")
+daemons+=(["foreground"]="colour37")
+daemons+=(["background"]="colour234")
+daemons+=(["separator"]="${separator_left_bold}")
+register_segment "daemons"
 
 declare -A load
 load+=(["script"]="${segments_path}/load.sh")
@@ -47,51 +39,6 @@ battery+=(["foreground"]="colour127")
 battery+=(["background"]="colour137")
 battery+=(["separator"]="${separator_left_bold}")
 register_segment "battery"
-
-#declare -A weather
-#weather+=(["script"]="${segments_path}/weather.sh")
-#weather+=(["foreground"]="colour255")
-#weather+=(["background"]="colour30")
-#weather+=(["separator"]="${separator_left_bold}")
-#register_segment "weather"
-
-declare -A lan_ip
-lan_ip+=(["script"]="${segments_path}/lan_ip.sh")
-lan_ip+=(["foreground"]="colour255")
-lan_ip+=(["background"]="colour24")
-lan_ip+=(["separator"]="${separator_left_bold}")
-register_segment "lan_ip"
-
-declare -A wan_ip
-wan_ip+=(["script"]="${segments_path}/wan_ip.sh")
-wan_ip+=(["foreground"]="colour255")
-wan_ip+=(["background"]="colour24")
-wan_ip+=(["separator"]="${separator_left_thin}")
-wan_ip+=(["separator_fg"]="white")
-register_segment "wan_ip"
-
-#declare -A end_space
-#end_space+=(["script"]="${segments_path}/end_space.sh")
-#end_space+=(["foreground"]="colour255")
-#end_space+=(["background"]="colour24")
-#end_space+=(["separator"]="${separator_left_thin}")
-#end_space+=(["separator_fg"]="white")
-#register_segment "end_space"
-
-#declare -A date_day
-#date_day+=(["script"]="${segments_path}/date_day.sh")
-#date_day+=(["foreground"]="colour136")
-#date_day+=(["background"]="colour235")
-#date_day+=(["separator"]="${separator_left_bold}")
-#register_segment "date_day"
-
-#declare -A date_full
-#date_full+=(["script"]="${segments_path}/date_full.sh")
-#date_full+=(["foreground"]="colour136")
-#date_full+=(["background"]="colour235")
-#date_full+=(["separator"]="${separator_left_thin}")
-#date_full+=(["separator_fg"]="default")
-#register_segment "date_full"
 
 declare -A time
 time+=(["script"]="${segments_path}/time.sh")
