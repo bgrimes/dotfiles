@@ -19,6 +19,8 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/Rename'
 Bundle 'groenewege/vim-less'
+Bundle 'freitass/todo.txt-vim'
+Bundle 'https://github.com/peterhoeg/vim-tmux.git'
 " TODO: Actually allow user to use a .vimbundles files to determine other bundles
 filetype plugin indent on
 " End Vundle setup

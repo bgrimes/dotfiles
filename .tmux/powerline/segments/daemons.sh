@@ -26,5 +26,5 @@ echo -n "${COLOR}redis"
 
 echo -n " "
 
-COLOR=$([[ $(ps aux | grep /bin/bash | grep scripts/test-tunnel) ]] && echo "$GREEN" || echo "$RED")
-echo -n "${COLOR}test-tunnel"
+COLOR=$([[ $(pgrep -l beam.smp) ]] && echo "$GREEN" || echo "$RED")
+echo -n "${COLOR}rabbitmq"
