@@ -12,12 +12,14 @@
   co = checkout
   df = diff
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit 
+  llg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches --not --remotes
   spull = !git-svn fetch && git-svn rebase
   spush = !git-svn dcommit --interactive
   ri = rebase --interactive --autosquash
   pusho = push origin --all
   pullo = pull origin --all
   soft = reset --soft HEAD~1
+  cam = commit --all --amend
 [merge]
 	tool = opendiff
 [credential]
