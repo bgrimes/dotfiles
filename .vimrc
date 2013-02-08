@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " Remember to run `:BundleInstall` after adding bundles here! (`:BundleClean` to autoremove unused ones)
 Bundle 'gmarik/vundle'
+"Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-scripts/tir_black'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
@@ -20,15 +21,24 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/Rename'
 Bundle 'groenewege/vim-less'
 Bundle 'freitass/todo.txt-vim'
-Bundle 'https://github.com/peterhoeg/vim-tmux.git'
+Bundle 'peterhoeg/vim-tmux.git'
+Bundle 'kien/ctrlp.vim'
+Bundle "pangloss/vim-javascript"
+Bundle 'majutsushi/tagbar'
 " TODO: Actually allow user to use a .vimbundles files to determine other bundles
 filetype plugin indent on
 " End Vundle setup
 
-color tir_black
-syntax on
+syntax enable
+"set background=dark
+colorscheme tir_black
 
-set sw=4 ts=4 noet nu si hls
+set shiftwidth=4 
+set tabstop=4 
+set noexpandtab
+set number 
+set si
+set hlsearch
 set backup
 set writebackup
 set backupdir=~/.vimbackup
@@ -42,6 +52,7 @@ set nospell
 set encoding=utf8
 set laststatus=2
 set ttyfast
+set modeline
 
 if has('gui_running')
 	set guifont=Monaco\ for\ Powerline
