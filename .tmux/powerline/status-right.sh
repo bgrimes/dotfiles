@@ -15,11 +15,20 @@ segments_path="${cwd}/${segments_dir}"
 # Segment
 # Comment/uncomment the register function call to enable or disable a segment.
 
+declare -A adium
+adium+=(["script"]="${segments_path}/adium.sh")
+adium+=(["foreground"]="colour196")
+adium+=(["background"]="colour236")
+adium+=(["separator"]="${separator_left_bold}")
+#adium+=(["separator_fg"]="white")
+register_segment "adium"
+
 declare -A daemons
 daemons+=(["script"]="${segments_path}/daemons.sh")
 daemons+=(["foreground"]="colour37")
 daemons+=(["background"]="colour234")
 daemons+=(["separator"]="${separator_left_bold}")
+#ademons+=(["separator_fg"]="colour253")
 register_segment "daemons"
 
 declare -A load
