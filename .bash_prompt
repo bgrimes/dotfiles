@@ -64,12 +64,17 @@ source ~/.bash/prompt_color_settings.orig
 [ -e ~/.bash/prompt_color_settings ] && source ~/.bash/prompt_color_settings
 
 function parse_git_dirty() {
-	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && git_changes_icon || git_no_changes_icon
+	[[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && git_changes_icon || git_no_changes_icon
+
+	#[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && git_changes_icon || git_no_changes_icon
+
+	stashCount=$(git stash list 2> /dev/null | wc -l | trim)
+	[[ $stashCount -ne 0 ]] && echo -n "$PURPLE Stashed: $stashCount"
 }
 
 function parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/( \1 $(parse_git_dirty) $PURPLE)/"
 }
 
-export PS1="\[${BOLD}${USERCOLOR}\]\u \[$BASECOLOR\]at \[$HOSTCOLOR\]\h \[$BASECOLOR\]in \[$DIRCOLOR\]\w\[$BASECOLOR\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$BASECOLOR\]\n\[$RESET\]\$ \[$RESET\]"
+export PS1="\n\[${BOLD}${USERCOLOR}\]\u \[$BASECOLOR\]at \[$HOSTCOLOR\]\h \[$BASECOLOR\]in \[$DIRCOLOR\]\w\[$BASECOLOR\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$BASECOLOR\]\n\[$RESET\]\$ \[$RESET\]"
 export PS2="\[$PS2COLOR\]→ \[$RESET\]"
