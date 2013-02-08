@@ -1,6 +1,6 @@
 #!/bin/bash
 LINKEDDIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-BACKUPFOLDER=~/backup/backup-dotfiles-`date +%s`
+BACKUPFOLDER=~/.backup/backup-dotfiles-`date +%s`
 
 git pull &>/dev/null
 git submodule update --init &>/dev/null
