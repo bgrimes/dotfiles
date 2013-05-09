@@ -17,7 +17,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'msanders/snipmate.vim'
 Bundle 'anthonymarion/coffeScript-VIM-Snippets'
 Bundle 'digitaltoad/vim-jade'
-Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/Rename'
 Bundle 'groenewege/vim-less'
 Bundle 'freitass/todo.txt-vim'
@@ -25,6 +24,11 @@ Bundle 'peterhoeg/vim-tmux.git'
 Bundle 'kien/ctrlp.vim'
 Bundle "pangloss/vim-javascript"
 Bundle 'majutsushi/tagbar'
+Bundle 'mattn/webapi-vim'
+"Bundle 'SirVer/ultisnips'
+Bundle 'Townk/vim-autoclose.git'
+Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 " TODO: Actually allow user to use a .vimbundles files to determine other bundles
 filetype plugin indent on
 " End Vundle setup
@@ -105,3 +109,11 @@ let g:ctrlp_prompt_mappings = {
   \ }
 
 let g:ctrlp_custom_ignore = 'node_modules\|.git'
+
+let g:ctrlp_user_command = {
+	\ 'types': {
+		\ 1: ['.git', 'cd %s && git ls-files'],
+		\ 2: ['.hg', 'hg --cwd %s locate -I .'],
+		\ },
+	\ 'fallback': 'find %s -type f'
+	\ }

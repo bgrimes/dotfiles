@@ -19,6 +19,7 @@
   pusho = push origin --all
   pullo = pull origin --all
   soft = reset --soft HEAD~1
+  mixed = reset --mixed HEAD~1
   cam = commit --all --amend
 [merge]
 	tool = opendiff
