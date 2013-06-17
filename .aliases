@@ -123,3 +123,6 @@ then
     alias ping='colourify ping'
     alias traceroute='colourify /usr/sbin/traceroute'
 fi
+
+alias grep="grep --exclude-dir='log'"
+alias vi=vim

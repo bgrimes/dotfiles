@@ -17,8 +17,8 @@ segments_path="${cwd}/${segments_dir}"
 
 declare -A adium
 adium+=(["script"]="${segments_path}/adium.sh")
-adium+=(["foreground"]="colour196")
-adium+=(["background"]="colour236")
+adium+=(["foreground"]="colour88")
+adium+=(["background"]="colour144")
 adium+=(["separator"]="${separator_left_bold}")
 #adium+=(["separator_fg"]="white")
 register_segment "adium"
