@@ -1,4 +1,4 @@
-# Anthony’s dotfiles
+# .files
 
 ## Installation
 

@@ -68,7 +68,7 @@ function parse_git_dirty() {
 
 	#[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && git_changes_icon || git_no_changes_icon
 
-	stashCount=$(git stash list 2> /dev/null | wc -l | trim)
+	stashCount=$(git stash list 2> /dev/null | wc -l)
 	[[ $stashCount -ne 0 ]] && echo -n "$PURPLE Stashed: $stashCount"
 }
 
